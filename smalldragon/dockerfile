@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+RUN apt-get update -y \
+    && echo $(pwd) \
+    && apt-get install gcc -y \
+    && apt-get install make -y \
+    && apt-get install cmake -y \
+    && apt-get install flex -y \
+    && apt-get install valgrind -y \
+    && apt-get install git -y\
+    && git clone https://github.com/pointbazaar/smalldragon.git \
+    && mv smalldragon ~/smalldragon \
+    && cd ~/smalldragon \
+    && echo PATH=~/smalldragon/transpiler:~/smalldragon/lexer:~/smalldragon/parser:$PATH >> ~/.bashrc \
+    && cat ~/.bashrc \
+    && make 

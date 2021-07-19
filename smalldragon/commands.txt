@@ -1,0 +1,5 @@
+Build:
+docker build -t dockerfile .
+
+Run:
+docker run --rm -it dockerfile
